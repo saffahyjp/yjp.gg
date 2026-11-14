@@ -1,0 +1,123 @@
+/* Resume-only entry, metadata, and responsive disclosure styles. */
+.resume-header,
+.resume-section,
+.disclosure-summary,
+.disclosure-details {
+    min-width: 0;
+}
+
+.resume-header blockquote {
+    padding: 0;
+    color: inherit;
+    border: 0;
+}
+
+.resume-header blockquote p::before {
+    content: "> ";
+}
+
+.inline-action {
+    display: block;
+    margin-left: 0;
+}
+
+.resume-item,
+.list-item-row {
+    min-width: 0;
+}
+
+.resume-item__annotation {
+    display: none;
+}
+
+.resume-item__meta,
+.list-item-row__meta {
+    color: inherit;
+    font-size: smaller;
+    line-height: 1.5;
+}
+
+.resume-item__note,
+.list-item-row__note {
+    display: block;
+}
+
+@media (min-width: 45rem) {
+    .prose li + .resume-entry {
+        margin-top: 1rem;
+    }
+
+    .inline-action {
+        display: inline;
+        float: right;
+        margin-left: 0.35rem;
+    }
+
+    .resume-item,
+    .list-item-row {
+        display: flow-root;
+        position: relative;
+    }
+
+    .resume-item__main,
+    .list-item-row__main {
+        display: inline;
+    }
+
+    .resume-item__annotation {
+        position: absolute;
+        top: -1.25em;
+        left: 0;
+        display: block;
+        color: #ccc;
+        font-size: xx-small;
+        line-height: 1.5;
+        white-space: nowrap;
+    }
+
+    .resume-item__meta,
+    .list-item-row__meta {
+        display: contents;
+        text-align: left;
+    }
+
+    .resume-item__note,
+    .list-item-row__note {
+        display: inline;
+    }
+
+    .resume-item__meta > span.resume-item__note,
+    .list-item-row__meta > span.list-item-row__note {
+        float: right;
+        margin-left: 0.35rem;
+        text-align: right;
+    }
+
+    .resume-item--multiline .resume-item__main {
+        display: block;
+    }
+
+    .resume-item--multiline .resume-item__meta > span:first-child {
+        position: absolute;
+        top: 0;
+        right: 0;
+        float: none;
+    }
+
+    .resume-item--multiline .resume-item__meta > div.resume-item__note {
+        display: inline;
+    }
+}
+
+@media print {
+    .resume-item,
+    .list-item-row {
+        break-inside: avoid;
+    }
+
+    .resume-item__annotation,
+    .resume-item__meta,
+    .list-item-row__meta {
+        color: var(--color-muted);
+    }
+}

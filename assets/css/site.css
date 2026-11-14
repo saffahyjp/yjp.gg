@@ -1,0 +1,159 @@
+/* Shared layout and progressive-enhancement components. */
+.heading-row {
+    display: flex;
+    min-width: 0;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.7rem;
+    margin-block: 1.5rem 1rem;
+    line-height: 1.25;
+}
+
+.heading-row h1,
+.heading-row h2,
+.heading-row h3,
+.heading-row h4,
+.heading-row h5,
+.heading-row h6 {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.heading-row > h1,
+.heading-row > h2,
+.heading-row > h3,
+.heading-row > h4,
+.language-titles {
+    flex: 0 1 auto;
+}
+
+.heading-row--h1,
+.heading-row--h2 {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.heading-row--h1 {
+    padding-bottom: 0.6em;
+}
+
+.heading-row--h2 {
+    padding-bottom: 0.45em;
+}
+
+.heading-row--h1 h1 {
+    font-size: 2em;
+}
+
+.heading-row--h2 h2 {
+    font-size: 1.5em;
+}
+
+.heading-row--h3 h3 {
+    font-size: 1.25em;
+}
+
+.heading-row--h4 h4 {
+    font-size: 1em;
+}
+
+.language-titles h1 {
+    width: 100%;
+}
+
+.text-button {
+    display: inline;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: var(--color-link);
+    background: transparent;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: inherit;
+    overflow-wrap: anywhere;
+    text-align: inherit;
+    vertical-align: baseline;
+    white-space: normal;
+    appearance: none;
+}
+
+.text-button:hover {
+    text-decoration: underline;
+}
+
+.heading-action {
+    flex: 0 1 auto;
+    margin-left: 0;
+}
+
+.heading-meta {
+    min-width: 0;
+    flex: 0 1 auto;
+    margin-left: auto;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.heading-meta .note {
+    font-size: 0.8125rem;
+}
+
+.icon-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.icon-link img {
+    width: 20px;
+    height: 20px;
+    flex: none;
+}
+
+.disclosure {
+    min-width: 0;
+}
+
+.disclosure[data-expanded="true"] {
+    background: var(--color-surface-subtle);
+}
+
+noscript p {
+    color: var(--color-muted);
+}
+
+@media (min-width: 45rem) {
+    .heading-meta {
+        text-align: right;
+    }
+}
+
+@media print {
+    .heading-row {
+        break-inside: avoid;
+        break-after: avoid;
+    }
+
+    .js-only,
+    .text-button,
+    noscript {
+        display: none !important;
+    }
+
+    .resume-page .disclosure-summary {
+        display: none !important;
+    }
+
+    .resume-page .disclosure-details,
+    .resume-page .inline-details {
+        display: block !important;
+    }
+
+    .disclosure[data-expanded] {
+        background: transparent;
+    }
+}

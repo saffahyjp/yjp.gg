@@ -1,0 +1,228 @@
+/* Minimal foundation for the yjp.gg static pages. */
+:root {
+    color-scheme: light;
+    --color-fg: #24292e;
+    --color-muted: #59636e;
+    --color-link: #0366d6;
+    --color-border: #eaecef;
+    --color-border-strong: #dfe2e5;
+    --color-surface: #fff;
+    --color-surface-subtle: #f7f7f7;
+    --color-focus: #0969da;
+    --content-width: 48rem;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+        sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    color: var(--color-fg);
+    background: var(--color-surface);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+strong {
+    font-weight: 600;
+}
+
+img {
+    max-width: 100%;
+    border-style: none;
+}
+
+.page {
+    display: flow-root;
+    width: 100%;
+    max-width: var(--content-width);
+    margin: 2rem auto;
+    padding-inline: 1rem;
+}
+
+.prose {
+    overflow-wrap: break-word;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+    margin-block: 1.5rem 1rem;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.prose h1 {
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 2em;
+}
+
+.prose h2 {
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 1.5em;
+}
+
+.prose h3 {
+    font-size: 1.25em;
+}
+
+.prose h4 {
+    font-size: 1em;
+}
+
+.prose h5 {
+    font-size: 0.875em;
+}
+
+.prose h6 {
+    color: var(--color-muted);
+    font-size: 0.85em;
+}
+
+.prose p,
+.prose blockquote,
+.prose ul,
+.prose ol,
+.prose pre {
+    margin-block: 0 1rem;
+}
+
+.prose ul,
+.prose ol {
+    padding-left: 2em;
+}
+
+.prose ul ul,
+.prose ul ol,
+.prose ol ul,
+.prose ol ol {
+    margin-block: 0;
+}
+
+.prose li {
+    min-width: 0;
+}
+
+.prose li + li {
+    margin-top: 0.25em;
+}
+
+.prose li > p {
+    margin-top: 1rem;
+}
+
+.prose blockquote {
+    margin-inline: 0;
+    padding-inline: 1em;
+    color: var(--color-muted);
+    border-left: 0.25em solid var(--color-border-strong);
+}
+
+.prose blockquote > :first-child {
+    margin-top: 0;
+}
+
+.prose blockquote > :last-child {
+    margin-bottom: 0;
+}
+
+.prose code {
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    background: rgb(27 31 35 / 5%);
+    font-family: var(--font-mono);
+    font-size: 85%;
+}
+
+.prose pre {
+    padding: 1rem;
+    overflow: auto;
+    border-radius: 3px;
+    background: #f6f8fa;
+    font-family: var(--font-mono);
+    font-size: 85%;
+    line-height: 1.45;
+}
+
+.prose pre code {
+    padding: 0;
+    background: transparent;
+    font-size: 100%;
+}
+
+@media print {
+    :root {
+        --color-fg: #000;
+        --color-muted: #444;
+        --color-link: #000;
+        --color-border: #bbb;
+        --color-border-strong: #999;
+        --color-surface: #fff;
+        --color-surface-subtle: #fff;
+    }
+
+    .page {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+    .prose h1,
+    .prose h2,
+    .prose h3,
+    .prose h4 {
+        break-after: avoid;
+    }
+}
